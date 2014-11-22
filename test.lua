@@ -1,17 +1,40 @@
 local ext = require(arg[1])
 
-local function luaonly() 
-    local obj = {}
-    setmetatable(obj,{
-        __gc = function()
+local luaonly
+
+if _VERSION >= 'Lua 5.2' then
+  function defer(fn)
+    setmetatable({}, { __gc = fn })
+  end
+  function luaonly() 
+      local obj = {}
+      setmetatable(obj,{
+          __gc = function()
+              print('__gc for lua only',obj)
+          end,
+          __call = function()
+              print('__call for lua only',obj)
+          end
+      })
+
+      return obj
+  end
+else
+  function defer(fn)
+    getmetatable(newproxy(true)).__gc = fn
+  end
+  function luaonly() 
+        local obj = newproxy(true)
+        local mt = getmetatable(obj)
+        mt.__gc = function()
             print('__gc for lua only',obj)
-        end,
-        __call = function()
+        end
+        mt.__call = function()
             print('__call for lua only',obj)
         end
-    })
 
-    return obj
+        return obj
+    end
 end
 
 
