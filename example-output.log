@@ -1,0 +1,35 @@
+luajit:
+new userdata=0x4181aab8(x)
+new userdata=0x4181aae0(y)
+ready, letting collector take over
+calling x and y
+__call userdata=0x4181aab8(x)
+__call userdata=0x4181aae0(y)
+__call for lua only	userdata: 0x4181ab28
+__gc for lua only	userdata: 0x4181ab28
+__gc userdata=0x4181aae0(y)
+__gc userdata=0x4181aab8(x)
+
+lua 5.1:
+new userdata=0xad00f8(x)
+new userdata=0xad0138(y)
+ready, letting collector take over
+calling x and y
+__call userdata=0xad00f8(x)
+__call userdata=0xad0138(y)
+__call for lua only	userdata: 0xad0178
+__gc for lua only	userdata: 0xad0178
+__gc userdata=0xad0138(y)
+__gc userdata=0xad00f8(x)
+
+lua 5.2:
+new userdata=0xe8a5c8(x)
+new userdata=0xe8a518(y)
+ready, letting collector take over
+calling x and y
+__call userdata=0xe8a5c8(x)
+__call userdata=0xe8a518(y)
+__call for lua only	table: 0xe8a870
+__gc for lua only	table: 0xe8a870
+__gc userdata=0xe8a518(y)
+__gc userdata=0xe8a5c8(x)
