@@ -33,3 +33,41 @@ __call for lua only	table: 0xe8a870
 __gc for lua only	table: 0xe8a870
 __gc userdata=0xe8a518(y)
 __gc userdata=0xe8a5c8(x)
+
+*** now with buggy=1 ***
+
+luajit:
+new userdata=0x419a7bc0(x)
+new userdata=0x419a7be8(y)
+ready, letting collector take over
+__gc for lua only	userdata: 0x419a7c30
+__gc userdata=0x419a7be8(y)
+__gc userdata=0x419a7bc0(x)
+calling x and y
+__call userdata=0x419a7bc0(x)
+__call userdata=0x419a7be8(y)
+__call for lua only	userdata: 0x419a7c30
+
+lua 5.1:
+new userdata=0x125d148(x)
+new userdata=0x1266be8(y)
+ready, letting collector take over
+__gc for lua only	userdata: 0x1266c28
+__gc userdata=0x1266be8(y)
+__gc userdata=0x125d148(x)
+calling x and y
+__call userdata=0x125d148(x)
+__call userdata=0x1266be8(y)
+__call for lua only	userdata: 0x1266c28
+
+lua 5.2:
+new userdata=0x6fd518(x)
+new userdata=0x6fd9f8(y)
+ready, letting collector take over
+__gc for lua only	table: 0x6fda10
+__gc userdata=0x6fd9f8(y)
+__gc userdata=0x6fd518(x)
+calling x and y
+__call userdata=0x6fd518(x)
+__call userdata=0x6fd9f8(y)
+__call for lua only	table: 0x6fda10
