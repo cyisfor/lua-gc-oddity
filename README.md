@@ -16,7 +16,7 @@ It’s basically this:
 	b()
 	-- now a.somemethod() gets called,
 
-The bizarre and arbitrary part about this is, if you assign ‘somevalue()’ to a before defining the function, then ‘a’ cannot be finalized until the function itself is collected, but if you assign ‘somevalue()’ to ‘a’ after defining the function, then the function retains the upvalue, but ‘a’ is still finalized in ignorance of that.
+The bizarre and arbitrary part about this is, if you assign `somevalue()` to a before defining the function, then `a` cannot be finalized until the function itself is collected, but if you assign `somevalue()` to `a` after defining the function, then the function retains the upvalue, but `a` is still finalized in ignorance of that.
 
 The test script demonstrates this by assigning after if `buggy=1` and assigning before if buggy is unset in the environment. To use said script run make, then `sh test.sh` to see the results. `__call` should come before `__gc` in any case.
 
